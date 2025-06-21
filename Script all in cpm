@@ -1,4 +1,4 @@
-if os.date("%Y%m%d") > "20241230" then
+if os.date("%Y%m%d") > "20291230" then
 time=gg.alert([[
                      ☣️THIS SCRIPT HAS EXPIRED ☣️
 🔸PLEASE REFER TO THE DEVELOPER TO RENEW YOUR SCRIPT🔸
