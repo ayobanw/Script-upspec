@@ -1,0 +1,9 @@
+/Script-upspec/
+├── keys.txt
+└── script.lua
+
+user1:AYOB123
+user2:TEST1234
+cicaknakal:VIP999
+
+
