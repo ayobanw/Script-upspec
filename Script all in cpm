@@ -1,4 +1,4 @@
-if os.date("%Y%m%d") > "20251230" then
+if os.date("%Y%m%d") > "20241230" then
 time=gg.alert([[
                      ☣️THIS SCRIPT HAS EXPIRED ☣️
 🔸PLEASE REFER TO THE DEVELOPER TO RENEW YOUR SCRIPT🔸
@@ -50,114 +50,238 @@ gg.toast("SELESAI")
 gg.sleep(1000)
 gg.alert("SILA TEKAN LOGO GG")
 
-function main()
-menu = gg.multiChoice({
-  " 🆙 CUSTOM SPEC ",--1
-  " 💰 MENU DUIT DAN COIN ",--2
-  " 🎊 PRANK MENU ",--3
-  " 👽 MENU CROM BUANG BUMPER",--4
-  " ⚙️ GEAR BOX",--5
-  " 🛣️CONTROL GLITCH",--6
-  " 🔀 DRIFF MENU",--7
-  "𝐄𝐗𝐈𝐓",--8
-  "                       𝐍𝐄𝐖 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 4.8.24.4",
-}, nil,"𝑺𝑪𝑹𝑰𝑷𝑻 𝑩𝒀 ☣️ 🅰🅽🆆 ®©™")
-if menu == nil then
-gg.toast ("𝑺𝑪𝑹𝑰𝑷𝑻 𝑩𝒀 ☣️ 🅰🅽🆆 ®©™ ☣️")
-else
-if menu[1] == true then
-M1()
-end
-if menu[2] == true then
-M2()
-end
-if menu[3] == true then
-M3()
-end 
-if menu[4] == true then
-M4()
-end  
-if menu[5] == true then
-M5()
-end
-if menu[6] == true then
-M6()
-end 
-if menu[7] == true then
-M7()
-end   
-if menu[8] == true then
-EXIT()
-anw()
+
+gg["clearResults"]()
+gg["clearList"]()
+BASLIK = "╠🔥━━━━━━━━━━━━━━━━━━━━━━━🔥╣\n        ☣️🅰🅽🆆 ®©™☣️\n      𝑺𝑪𝑹𝑰𝑷𝑻 𝑩𝒀 𝑨𝒀𝑶𝑩 𝑷𝑹𝑶𝑮𝑹𝑨𝑴\n╠🔥━━━━━━━━━━━━━━━━━━━━━━━🔥╣"
+menuckis = "KELUAR"
+ac = "TEKAN LOGO COIN"
+kapa = "EXIT"
+function cebrail()
+cebrail3 = gg.choice({
+	"🪙10k coin",
+    "🪙20k coin",
+	"🪙30k coin",
+	"🪙40k coin",
+	"🪙50k coin",
+    "🪙500k coin",
+    "🪙999,999,999m coin",
+menuckis..""},nil,BASLIK.."")
+if cebrail3 == nil then else
+if cebrail3 == 1 then b1() end
+if cebrail3 == 2 then b2()end
+if cebrail3 == 3 then b3()end
+if cebrail3 == 4 then b4() end
+if cebrail3 == 5 then b5()end
+if cebrail3 == 6 then b6()end
+if cebrail3 == 7 then b7()end
+if cebrail3 == 8 then CIKIS()
 end
 end
-CPM = - 1
+Cebraill = -1
+end
+function b1()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F284E200h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A00000h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
+end
+function b2()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F289C400h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A00000h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
+end
+function b3()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F28EA600h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A00000h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
+end
+function b4()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F2938800h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A00000h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
+end
+function b5()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F2986A00h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A00000h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
+end
+function b6()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F2942400h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A000E0h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
+end
+function b7()
+C21=gg.getRangesList('libil2cpp.so')[2].start
+YT=nil  YT={}
+YT[1]={}
+YT[1].address=C21+0x316DF98+0
+YT[1].value='F2993FE0h'
+YT[1].flags=4
+YT[2]={}
+YT[2].address=C21+0x316DF98+4
+YT[2].value='F2A77340h'
+YT[2].flags=4
+YT[3]={}
+YT[3].address=C21+0x316DF98+8
+YT[3].value='F2C00000h'
+YT[3].flags=4
+YT[4]={}
+YT[4].address=C21+0x316DF98+12
+YT[4].value='F2E00000h'
+YT[4].flags=4
+YT[5]={}
+YT[5].address=C21+0x316DF98+16
+YT[5].value='D65F03C0h'
+YT[5].flags=4
+gg.setValues(YT)
+gg.alert("TEKAN LOGO COIN","OK")
+gg.toast(ac.."")
 end
 
 
-C4()
+function CIKIS()
+os.exit()
+cebraill()
+gg.toast("KELUAR")
 end
-if menu3[5] == true then
-C5()
-end
-if menu3[6] == true then
-C6()
-end
-if menu3[7] == true then
-main()
-end
-end
-end
-
-function M4()
-menu4 = gg.multiChoice({
-    " 👽 UFO",--1
-    " ♻️ CROM",--2
-    " 🚗 BUANG BUMPER",--3
-"🔙𝐁𝐀𝐂𝐊"},nil,"✎✐Created 𝑩𝒀 𝑨𝒀𝑶𝑩 𝑷𝑹𝑶𝑮𝑹𝑨𝑴")
-if menu4 == nil then
-main()
-else
-if menu4[1] == true then
-D1()
-end
-if menu4[2] == true then
-D2()
-end
-if menu4[3] == true then
-D3()
-end
-if menu4[2] == true then
-main()
-end
-end
-end
-
-function M5()
-menu5 = gg.multiChoice({
-      " ⚙️ GEAR BOX",--1
-"🔙𝐁𝐀𝐂𝐊"},nil,"✎✐Created 𝑩𝒀 𝑨𝒀𝑶𝑩 𝑷𝑹𝑶𝑮𝑹𝑨𝑴")
-if menu5 == nil then
-main()
-else
-if menu5[1] == true then
-E1()
-end
-if menu5[2] == true then
-main()
-end
-end
-end
-
-function M6()
-menu6 = gg.multiChoice({
-      " 🛣️CONTROL GLITCH",--1
-      " ⚙️ ANTI DAMAGE ENGINE",--2
-"🔙𝐁𝐀𝐂𝐊"},nil,"✎✐Created 𝑩𝒀 𝑨𝒀𝑶𝑩 𝑷𝑹𝑶𝑮𝑹𝑨𝑴")
-if menu6 == nil then
-main()
-else
-if menu6[1] == true then
-F1()
-end
-if menu6[2] == true then
+while true do
+ if gg.isVisible(true) then
+ Cebraill = 1
+ gg.setVisible(false)
+ end
+ if Cebraill == 1 then
+ cebrail()
+ end
+ end 
