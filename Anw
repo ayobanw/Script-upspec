@@ -1,0 +1,28 @@
+-- 🔐 Sistem Key + Auto Load Skrip dari GitHub
+
+local github_user = "YourUsername"  -- GANTIKAN dengan GitHub Username kau
+local repo_name = "gg-server"       -- Nama repo
+local key_file = "keys.txt"
+local script_file = "script.lua"
+
+-- URL GitHub RAW
+local key_url = "https://raw.githubusercontent.com/"..github_user.."/"..repo_name.."/main/"..key_file
+local script_url = "https://raw.githubusercontent.com/"..github_user.."/"..repo_name.."/main/"..script_file
+
+-- Minta user masukkan key (jika nak guna key system)
+local userKey = gg.prompt({"Masukkan Key (jika perlu):"})[1]
+local keyList = gg.makeRequest(key_url).content
+
+-- Jika key salah, keluar (tapi kalau fail tak wujud, skip key check)
+if keyList and not keyList:find(userKey) then
+    gg.alert("❌ Key tidak sah. Hubungi admin untuk akses.")
+    os.exit()
+end
+
+-- Muat turun skrip utama dari GitHub
+local remote = gg.makeRequest(script_url)
+if remote and remote.content then
+    load(remote.content)()
+else
+    gg.alert("❌ Gagal muat skrip dari GitHub. Semak sambungan internet atau URL.")
+end
