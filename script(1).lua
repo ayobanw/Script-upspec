@@ -1,6 +1,6 @@
 -- 🔐 Sistem Key Akses Sahaja
 local github_user = "ayobanw"
-local repo_name = "script-upspec"
+local repo_name = "Script-upspec"
 local key_file = "keys.txt"
 local script_file = "script-utama.lua"
 
