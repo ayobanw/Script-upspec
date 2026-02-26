@@ -2,7 +2,7 @@
 local github_user = "ayobanw"
 local repo_name = "Script-upspec"
 local key_file = "keys.txt"
-local script_file = "script-utama.lua"
+local script_file = "[ADMIN] AYOB PROGRAM V4.9.7.lua"
 
 local key_url = "https://raw.githubusercontent.com/"..github_user.."/"..repo_name.."/main/"..key_file
 local script_url = "https://raw.githubusercontent.com/"..github_user.."/"..repo_name.."/main/"..script_file
