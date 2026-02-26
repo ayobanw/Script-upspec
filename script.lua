@@ -1,65 +1,115 @@
-if os.date("%Y%m%d") > "20291230" then
+jiifp os.date("%Y%m%d") > "20291230" then
   gg.alert("SCRIPT EXPIRED. Contact Admin.")
   os.exit()
 end
 
-gg.setVisible(false)
-gg.sleep(300)
-gg.alert("WELCOME TO SCRIPT BY AYOB PROGRAM")
-gg.toast("Loading...")
+-- ANW®©™ Script by Abg & Mi 💥 (v4 - Strict Key Lock + Dynamic Loader)
 
-gg.clearResults()
-gg.clearList()
+local info = gg.getTargetInfo()
+local android_id = (info and info.androidId) or "GroupBotAnw"
 
-local menu = {
-  "10k Coin",
-  "20k Coin",
-  "30k Coin",
-  "40k Coin",
-  "50k Coin",
-  "500k Coin",
-  "Max Coin (999M)",
-  "Exit"
-}
+gg.alert("📱 Android ID anda: " .. android_id)
 
-function patchCoin(hex)
-  local base = gg.getRangesList("libil2cpp.so")[2].start
-  local addr = base + 0x316DF98
-  local values = {
-    {address = addr + 0, value = hex[1], flags = 4},
-    {address = addr + 4, value = hex[2], flags = 4},
-    {address = addr + 8, value = hex[3], flags = 4},
-    {address = addr + 12, value = hex[4], flags = 4},
-    {address = addr + 16, value = hex[5], flags = 4},
-  }
-  gg.setValues(values)
-  gg.alert("Patched! Press GG Icon")
+-- lokasi fail simpan key
+local keyFile = "/sdcard/anw_key.txt"
+
+-- fungsi baca key
+local function readKey()
+    local f = io.open(keyFile, "r")
+    if f then
+        local k = f:read("*l")
+        f:close()
+        return k
+    end
+    return nil
 end
 
-function showMenu()
-  local choice = gg.choice(menu, nil, "SCRIPT BY AYOB")
-  if not choice then return end
+-- fungsi simpan key
+local function saveKey(k)
+    local f = io.open(keyFile, "w")
+    if f then
+        f:write(k)
+        f:close()
+    end
+end
 
-  local patches = {
-    {"F284E200h","F2A00000h","F2C00000h","F2E00000h","D65F03C0h"},
-    {"F289C400h","F2A00000h","F2C00000h","F2E00000h","D65F03C0h"},
-    {"F28EA600h","F2A00000h","F2C00000h","F2E00000h","D65F03C0h"},
-    {"F2938800h","F2A00000h","F2C00000h","F2E00000h","D65F03C0h"},
-    {"F2986A00h","F2A00000h","F2C00000h","F2E00000h","D65F03C0h"},
-    {"F2942400h","F2A000E0h","F2C00000h","F2E00000h","D65F03C0h"},
-    {"F2993FE0h","F2A77340h","F2C00000h","F2E00000h","D65F03C0h"},
-  }
-
-  if choice >= 1 and choice <= 7 then
-    patchCoin(patches[choice])
-  elseif choice == 8 then
+-- fungsi reset key
+local function resetKey()
+    os.remove(keyFile)
+    gg.alert("🔄 KEY direset. Sila masukkan semula bila run semula.")
     os.exit()
-  end
 end
 
-while true do
-  if gg.isVisible(true) then
-    gg.setVisible(false)
-    showMenu()
-  end
+-- pilih key
+local savedKey = readKey()
+local key
+if savedKey and savedKey ~= "" then
+    local menu = gg.choice({
+        "🔑 Guna KEY tersimpan (" .. savedKey .. ")",
+        "✏️ Masukkan KEY baru",
+        "♻️ Reset KEY"
+    }, nil, "Pilih cara login:")
+    
+    if menu == 1 then
+        key = savedKey
+    elseif menu == 2 then
+        key = gg.prompt({"🔑 Masukkan KEY anda:"})[1]
+        if not key or key == "" then
+            gg.alert("❌ KEY tidak dimasukkan!")
+            os.exit()
+        end
+        saveKey(key)
+        gg.alert("💾 KEY baru berjaya disimpan ✔")
+    elseif menu == 3 then
+        resetKey()
+    else
+        os.exit()
+    end
+else
+    key = gg.prompt({"🔑 Masukkan KEY anda:"})[1]
+    if not key or key == "" then
+        gg.alert("❌ KEY tidak dimasukkan!")
+        os.exit()
+    end
+    saveKey(key)
+    gg.alert("💾 KEY berjaya disimpan ✔")
 end
+
+-- semak dengan GitHub
+local url = "https://raw.githubusercontent.com/ayobanw/keys/main/keys.txt"
+local response = gg.makeRequest(url)
+if not response or response.code ~= 200 then
+    gg.alert("❌ Gagal hubung ke GitHub (kod " .. tostring(response and response.code) .. ").")
+    os.exit()
+end
+
+local body = response.content
+
+-- Semak KEY + ID
+if body and string.find(body, key .. ":" .. android_id) then
+    gg.alert("✔ Key sah & ID sepadan. Selamat datang ke ☣️ⲀⲚⲰ ®©™☣️ Script!")
+else
+    gg.alert("❌ Key ini cuba dipakai device lain!\n\nKEY: " .. key .. "\nID Cuba Masuk: " .. android_id .. "\n\n⚠️ Laporkan ID ini untuk block.")
+    resetKey() -- auto reset supaya key simpanan buang
+end
+
+-- Dynamic Loader (script sebenar)
+local github_user = "ayobanw"
+local repo_name = "ALLCPM"
+local script_file = "[ANW] AYOB PROGRAM V4.9.7.lua"  -- 🚨 rename fail tanpa space
+
+local script_url = "https://raw.githubusercontent.com/" .. github_user .. "/" .. repo_name .. "/main/" .. script_file
+
+local scriptRequest = gg.makeRequest(script_url)
+if not scriptRequest or not scriptRequest.content then
+    gg.alert("❌ Gagal muat script utama dari GitHub.")
+    os.exit()
+end
+
+local func, err = load(scriptRequest.content)
+if not func then
+    gg.alert("❌ Ralat script utama: " .. tostring(err))
+    os.exit()
+end
+
+func()
